@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equilibrio Vital · Evaluación Climaterio & Menopausia · Kiko Martínez</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Palatino Linotype',Palatino,serif;background:#FAF5F0;color:#3D2A33;line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+
+/* ===== PORTADA ===== */
+.hero{min-height:100vh;background:linear-gradient(180deg,#6B4F5C 0%,#4A2D3A 50%,#2D1A22 100%);color:#FAF5F0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 24px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top,rgba(196,149,90,0.15) 0%,transparent 70%);pointer-events:none}
+.hero-ornament{font-size:24px;color:#DDB87A;letter-spacing:18px;margin-bottom:32px;opacity:0.85}
+.hero h1{font-family:Georgia,serif;font-size:clamp(42px,8vw,72px);font-weight:400;letter-spacing:2px;margin-bottom:12px;line-height:1.05}
+.hero .subtitle{font-family:Georgia,serif;font-style:italic;font-size:clamp(16px,3vw,20px);color:#DDB87A;margin-bottom:48px;letter-spacing:1px}
+.hero-intro{max-width:580px;font-family:Georgia,serif;font-size:clamp(15px,2.5vw,17px);line-height:1.8;color:#F0E1D6;font-style:italic;margin-bottom:56px;padding:0 16px}
+.hero-firma{font-family:Georgia,serif;font-size:13px;color:#DDB87A;letter-spacing:3px;text-transform:uppercase;margin-bottom:64px}
+.hero-cta{display:inline-block;padding:16px 40px;border:1px solid #DDB87A;color:#DDB87A;text-decoration:none;font-family:Georgia,serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;background:transparent;cursor:pointer;transition:all 0.3s}
+.hero-cta:hover{background:#DDB87A;color:#2D1A22}
+
+/* ===== AVISO RGPD ===== */
+.aviso-rgpd{background:#FAF5F0;padding:48px 24px;border-bottom:1px solid #E5D5C9}
+.aviso-rgpd-inner{max-width:720px;margin:0 auto;text-align:center}
+.aviso-rgpd h3{font-family:Georgia,serif;font-size:20px;color:#6B4F5C;margin-bottom:16px;font-weight:400}
+.aviso-rgpd p{font-size:14.5px;color:#5C4854;line-height:1.7}
+
+/* ===== SECCIONES ===== */
+.seccion{padding:56px 24px;border-bottom:1px solid #E5D5C9}
+.seccion:nth-child(even){background:#F5EBE0}
+.seccion-inner{max-width:760px;margin:0 auto}
+.seccion-num{font-family:Georgia,serif;font-size:13px;color:#C4955A;letter-spacing:4px;margin-bottom:8px;font-weight:600}
+.seccion h2{font-family:Georgia,serif;font-size:clamp(26px,4.5vw,34px);color:#6B4F5C;font-weight:400;margin-bottom:8px;letter-spacing:0.5px}
+.seccion-sub{font-family:Georgia,serif;font-style:italic;color:#9E7B8A;font-size:15px;margin-bottom:36px}
+
+.bloque-nota{background:#FAF5F0;border-left:3px solid #C4955A;padding:18px 22px;margin:24px 0;font-size:14.5px;line-height:1.65;color:#5C4854;font-style:italic;border-radius:4px}
+.bloque-nota strong{color:#6B4F5C;font-style:normal}
+
+/* ===== CAMPOS ===== */
+.campo{margin-bottom:24px}
+.campo label{display:block;font-family:Georgia,serif;font-size:15px;color:#5C4854;margin-bottom:10px;font-weight:600;letter-spacing:0.3px}
+.campo .req{color:#C4955A;margin-left:4px}
+.campo input[type="text"],.campo input[type="number"],.campo input[type="email"],.campo input[type="tel"],.campo input[type="date"],.campo textarea,.campo select{width:100%;padding:13px 16px;border:1px solid #D4BCAA;background:#FAF5F0;font-family:Georgia,serif;font-size:15px;color:#3D2A33;border-radius:4px;transition:border 0.2s}
+.campo input:focus,.campo textarea:focus,.campo select:focus{outline:none;border-color:#9E7B8A;background:#fff}
+.campo textarea{min-height:88px;resize:vertical;line-height:1.55}
+
+/* ===== INTENSIDAD (0-3) ===== */
+.intensidad-grupo{margin-bottom:32px}
+.intensidad-label{display:block;font-family:Georgia,serif;font-size:16px;color:#5C4854;margin-bottom:14px;font-weight:600}
+.intensidad-opciones{display:grid;grid-template-columns:1fr;gap:8px}
+.intensidad-opciones label{display:block;padding:13px 18px;border:1px solid #D4BCAA;background:#FAF5F0;border-radius:4px;cursor:pointer;font-size:14.5px;color:#5C4854;font-family:Georgia,serif;transition:all 0.2s;line-height:1.45}
+.intensidad-opciones label:hover{border-color:#9E7B8A;background:#fff}
+.intensidad-opciones input{display:none}
+.intensidad-opciones input:checked + span{display:block}
+.intensidad-opciones label.marcado{background:#9E7B8A;color:#fff;border-color:#9E7B8A;font-weight:600}
+
+/* ===== CHECKBOX MÚLTIPLE ===== */
+.checkbox-grupo{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
+.checkbox-grupo label{display:flex;align-items:flex-start;padding:13px 16px;border:1px solid #D4BCAA;background:#FAF5F0;border-radius:4px;cursor:pointer;font-size:14.5px;color:#5C4854;font-family:Georgia,serif;transition:all 0.2s;line-height:1.5;gap:12px}
+.checkbox-grupo label:hover{border-color:#9E7B8A;background:#fff}
+.checkbox-grupo input[type="checkbox"]{margin-top:3px;accent-color:#9E7B8A;cursor:pointer;flex-shrink:0}
+
+@media (min-width:640px){
+.intensidad-opciones{grid-template-columns:repeat(2,1fr)}
+.checkbox-grupo{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ===== CONSENTIMIENTO RGPD ===== */
+.consent-block{background:#fff;border:2px solid #C4955A;padding:32px;border-radius:8px;margin:32px 0}
+.consent-block h3{font-family:Georgia,serif;color:#6B4F5C;margin-bottom:18px;font-size:19px;font-weight:400}
+.consent-block ul{list-style:none;padding:0;margin:18px 0}
+.consent-block ul li{padding-left:20px;position:relative;margin-bottom:10px;font-size:14.5px;color:#5C4854;line-height:1.6}
+.consent-block ul li::before{content:"·";position:absolute;left:6px;top:0;color:#C4955A;font-size:20px;font-weight:bold}
+.consent-block .checkbox-grupo{grid-template-columns:1fr;margin-top:20px}
+.consent-block .checkbox-grupo label{background:#FAF5F0;font-size:14px}
+
+/* ===== BOTONES FINALES ===== */
+.botones-final{display:flex;flex-direction:column;gap:14px;margin-top:32px;align-items:center}
+.btn-pdf{background:#6B4F5C;color:#FAF5F0;border:none;padding:18px 48px;font-family:Georgia,serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all 0.3s;font-weight:600}
+.btn-pdf:hover{background:#4A2D3A}
+.btn-pdf:disabled{background:#C4B5AE;cursor:not-allowed;opacity:0.6}
+.btn-limpiar{background:transparent;color:#9E7B8A;border:none;padding:10px;font-family:Georgia,serif;font-size:13px;text-decoration:underline;cursor:pointer;letter-spacing:1px}
+.btn-limpiar:hover{color:#6B4F5C}
+
+.alerta-incompleto{background:#F9E8DA;border:1px solid #C4955A;color:#6B4F5C;padding:14px 18px;border-radius:4px;margin-top:16px;font-size:14px;font-family:Georgia,serif;display:none;text-align:center;line-height:1.5}
+.alerta-incompleto.visible{display:block}
+
+/* ===== FOOTER ===== */
+.footer-firma{background:#2D1A22;color:#DDB87A;padding:48px 24px;text-align:center}
+.footer-firma h4{font-family:Georgia,serif;font-size:22px;color:#FAF5F0;margin-bottom:8px;font-weight:400;letter-spacing:1px}
+.footer-firma p{font-family:Georgia,serif;font-style:italic;color:#DDB87A;font-size:14px;letter-spacing:1px;margin-bottom:4px}
+.footer-firma .lema{margin-top:18px;font-size:13px;letter-spacing:2px;color:#C4955A}
+
+/* ===== CONDICIONAL ===== */
+.condicional{display:none}
+.condicional.activo{display:block}
+
+</style>
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<section class="hero">
+<div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+<h1>Equilibrio Vital</h1>
+<div class="subtitle">Evaluación · Climaterio & Menopausia</div>
+<div class="hero-intro">Este cuestionario es el primer paso para conocerte de verdad y diseñar un programa completamente adaptado a ti, a tu momento y a tu cuerpo.</div>
+<div class="hero-firma">Kiko Martínez · Terapeuta Natural</div>
+<a href="#confianza" class="hero-cta">↓ Comenzar</a>
+</section>
+
+<!-- ============ AVISO INICIAL ============ -->
+<section class="aviso-rgpd" id="confianza">
+<div class="aviso-rgpd-inner">
+<h3>Un espacio de confianza para ti</h3>
+<p>Todo lo que compartes aquí es estrictamente confidencial y se utilizará únicamente para preparar tu programa personalizado. Tus datos no se ceden a terceros y son tratados conforme al Reglamento Europeo de Protección de Datos (RGPD EU 2016/679). Responde con la mayor honestidad posible: cuanto más nos cuentes, mejor podremos acompañarte.</p>
+</div>
+</section>
+
+<!-- ============ 01 · DATOS PERSONALES ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">01</div>
+<h2>Datos personales</h2>
+<div class="seccion-sub">Para que el programa sea tuyo, necesitamos conocerte</div>
+
+<div class="campo">
+<label>Nombre completo<span class="req">*</span></label>
+<input type="text" id="nombre" required>
+</div>
+<div class="campo">
+<label>Edad<span class="req">*</span></label>
+<input type="number" id="edad" min="30" max="80" required>
+</div>
+<div class="campo">
+<label>Teléfono</label>
+<input type="tel" id="telefono">
+</div>
+<div class="campo">
+<label>Ocupación</label>
+<input type="text" id="ocupacion">
+</div>
+</div>
+</section>
+
+<!-- ============ 02 · FASE DEL PROCESO ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">02</div>
+<h2>Fase del proceso</h2>
+<div class="seccion-sub">¿Dónde te encuentras en este ciclo vital?</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿En qué fase crees que te encuentras?<span class="req">*</span></div>
+<div class="intensidad-opciones">
+<label data-grupo="fase"><input type="radio" name="fase" value="Perimenopausia"><span>Perimenopausia — menstruación irregular, síntomas que empiezan a aparecer</span></label>
+<label data-grupo="fase"><input type="radio" name="fase" value="Menopausia reciente"><span>Menopausia reciente — menos de 2 años sin menstruación</span></label>
+<label data-grupo="fase"><input type="radio" name="fase" value="Postmenopausia"><span>Postmenopausia — más de 2 años sin menstruación</span></label>
+<label data-grupo="fase"><input type="radio" name="fase" value="Menopausia quirúrgica"><span>Menopausia quirúrgica — por cirugía</span></label>
+<label data-grupo="fase"><input type="radio" name="fase" value="No lo sé"><span>No lo sé con certeza</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>Fecha aproximada de última menstruación (mes y año)</label>
+<input type="text" id="ultima_mens" placeholder="Ej: marzo 2023, o 'no recuerdo'">
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Desde cuándo tienes síntomas?</div>
+<div class="intensidad-opciones">
+<label data-grupo="duracion_sint"><input type="radio" name="duracion_sint" value="<6 meses"><span>Menos de 6 meses</span></label>
+<label data-grupo="duracion_sint"><input type="radio" name="duracion_sint" value="6-12 meses"><span>Entre 6 y 12 meses</span></label>
+<label data-grupo="duracion_sint"><input type="radio" name="duracion_sint" value="1-3 años"><span>Entre 1 y 3 años</span></label>
+<label data-grupo="duracion_sint"><input type="radio" name="duracion_sint" value=">3 años"><span>Más de 3 años</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Estás o has estado en Terapia Hormonal Sustitutiva (THS)?</div>
+<div class="intensidad-opciones">
+<label data-grupo="ths"><input type="radio" name="ths" value="Sí, actualmente"><span>Sí, actualmente</span></label>
+<label data-grupo="ths"><input type="radio" name="ths" value="La tomé y la dejé"><span>La tomé pero la dejé</span></label>
+<label data-grupo="ths"><input type="radio" name="ths" value="No, nunca"><span>No, nunca</span></label>
+<label data-grupo="ths"><input type="radio" name="ths" value="Me la han recomendado"><span>Me la han recomendado pero no me he decidido</span></label>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 03 · SÍNTOMAS FÍSICOS ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">03</div>
+<h2>Síntomas físicos</h2>
+<div class="seccion-sub">Toca el número que mejor describe la intensidad de cada síntoma</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">🌡️ Sofocos (calor repentino, rubor)</div>
+<div class="intensidad-opciones">
+<label data-grupo="sofocos"><input type="radio" name="sofocos" value="No"><span>No los tengo</span></label>
+<label data-grupo="sofocos"><input type="radio" name="sofocos" value="Leves"><span>Leves — puntuales, no me alteran el día</span></label>
+<label data-grupo="sofocos"><input type="radio" name="sofocos" value="Moderados"><span>Moderados — frecuentes, me resultan molestos</span></label>
+<label data-grupo="sofocos"><input type="radio" name="sofocos" value="Intensos"><span>Intensos — muy frecuentes, afectan a mi calidad de vida</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">🌙 Sudoración nocturna</div>
+<div class="intensidad-opciones">
+<label data-grupo="sudor"><input type="radio" name="sudor" value="No"><span>No la tengo</span></label>
+<label data-grupo="sudor"><input type="radio" name="sudor" value="Leve"><span>Leve — sudo algo pero no me despierta</span></label>
+<label data-grupo="sudor"><input type="radio" name="sudor" value="Moderada"><span>Moderada — me despierta alguna noche</span></label>
+<label data-grupo="sudor"><input type="radio" name="sudor" value="Intensa"><span>Intensa — me despierta casi cada noche, necesito cambiarme</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">🦴 Dolores articulares y musculares</div>
+<div class="intensidad-opciones">
+<label data-grupo="dolores"><input type="radio" name="dolores" value="No"><span>No los tengo</span></label>
+<label data-grupo="dolores"><input type="radio" name="dolores" value="Leves"><span>Leves — alguna molestia puntual</span></label>
+<label data-grupo="dolores"><input type="radio" name="dolores" value="Moderados"><span>Moderados — presentes con regularidad</span></label>
+<label data-grupo="dolores"><input type="radio" name="dolores" value="Intensos"><span>Intensos — limitan mis actividades habituales</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">😴 Fatiga o cansancio crónico</div>
+<div class="intensidad-opciones">
+<label data-grupo="fatiga"><input type="radio" name="fatiga" value="No"><span>No la tengo, mi energía es buena</span></label>
+<label data-grupo="fatiga"><input type="radio" name="fatiga" value="Leve"><span>Leve — algunos días me siento cansada</span></label>
+<label data-grupo="fatiga"><input type="radio" name="fatiga" value="Moderada"><span>Moderada — me noto cansada con frecuencia</span></label>
+<label data-grupo="fatiga"><input type="radio" name="fatiga" value="Intensa"><span>Intensa — el cansancio está presente casi todos los días</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">💤 Alteraciones del sueño (insomnio, despertares)</div>
+<div class="intensidad-opciones">
+<label data-grupo="sueno"><input type="radio" name="sueno" value="No"><span>Duermo bien, no tengo problemas</span></label>
+<label data-grupo="sueno"><input type="radio" name="sueno" value="Leve"><span>Leves — alguna noche con dificultades</span></label>
+<label data-grupo="sueno"><input type="radio" name="sueno" value="Moderada"><span>Moderadas — varias noches a la semana</span></label>
+<label data-grupo="sueno"><input type="radio" name="sueno" value="Intensa"><span>Intensas — casi cada noche duermo mal</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">💓 Palpitaciones o taquicardia</div>
+<div class="intensidad-opciones">
+<label data-grupo="palpit"><input type="radio" name="palpit" value="No"><span>No las tengo</span></label>
+<label data-grupo="palpit"><input type="radio" name="palpit" value="Ocasionales"><span>Ocasionales — raramente, no me preocupan</span></label>
+<label data-grupo="palpit"><input type="radio" name="palpit" value="Frecuentes"><span>Frecuentes — aparecen con regularidad</span></label>
+<label data-grupo="palpit"><input type="radio" name="palpit" value="Muy frecuentes"><span>Muy frecuentes — me generan malestar o preocupación</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Presentas alguno de estos síntomas? (puedes marcar varios)</label>
+<div class="checkbox-grupo">
+<label><input type="checkbox" name="otros_sint" value="Sequedad vaginal">Sequedad vaginal / molestias íntimas</label>
+<label><input type="checkbox" name="otros_sint" value="Piel y cabello frágiles">Piel seca, cabello o uñas frágiles</label>
+<label><input type="checkbox" name="otros_sint" value="Migrañas">Dolores de cabeza o migrañas</label>
+<label><input type="checkbox" name="otros_sint" value="Mareos o vértigo">Mareos o vértigo</label>
+<label><input type="checkbox" name="otros_sint" value="Aumento de peso">Aumento de peso / cambios en silueta</label>
+<label><input type="checkbox" name="otros_sint" value="Retención de líquidos">Retención de líquidos / hinchazón</label>
+<label><input type="checkbox" name="otros_sint" value="Digestiones pesadas">Digestiones pesadas o gases</label>
+<label><input type="checkbox" name="otros_sint" value="Hormigueos">Hormigueos en manos o pies</label>
+<label><input type="checkbox" name="otros_sint" value="Acúfenos">Acúfenos (zumbidos en los oídos)</label>
+<label><input type="checkbox" name="otros_sint" value="Sequedad ocular">Sequedad ocular o de boca</label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿En qué momento del día los síntomas son más intensos?</div>
+<div class="intensidad-opciones">
+<label data-grupo="momento"><input type="radio" name="momento" value="Mañana"><span>Por la mañana al despertar</span></label>
+<label data-grupo="momento"><input type="radio" name="momento" value="Media mañana"><span>A media mañana</span></label>
+<label data-grupo="momento"><input type="radio" name="momento" value="Tarde"><span>Por la tarde</span></label>
+<label data-grupo="momento"><input type="radio" name="momento" value="Noche"><span>Por la noche / al acostarse</span></label>
+<label data-grupo="momento"><input type="radio" name="momento" value="Durmiendo"><span>Durante el sueño</span></label>
+<label data-grupo="momento"><input type="radio" name="momento" value="Sin patrón"><span>Sin un patrón claro</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Hay algún otro síntoma físico que quieras describir?</label>
+<textarea id="otros_sint_text"></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 04 · ESTADO EMOCIONAL ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">04</div>
+<h2>Estado emocional y mental</h2>
+<div class="seccion-sub">Tu mundo interior también forma parte de tu salud. Esta sección es especialmente importante</div>
+
+<div class="bloque-nota"><strong>Recuerda:</strong> los mismos cambios hormonales que generan síntomas físicos también afectan directamente al estado emocional. No eres tú, es tu biología — y se puede trabajar.</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">😤 Irritabilidad o cambios de humor</div>
+<div class="intensidad-opciones">
+<label data-grupo="irrit"><input type="radio" name="irrit" value="No"><span>No la tengo</span></label>
+<label data-grupo="irrit"><input type="radio" name="irrit" value="Leve"><span>Leve — algún momento puntual, lo controlo</span></label>
+<label data-grupo="irrit"><input type="radio" name="irrit" value="Moderada"><span>Moderada — frecuente, me cuesta gestionarlo</span></label>
+<label data-grupo="irrit"><input type="radio" name="irrit" value="Intensa"><span>Intensa — muy frecuente, afecta a mis relaciones</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">😟 Ansiedad o nerviosismo</div>
+<div class="intensidad-opciones">
+<label data-grupo="ansiedad"><input type="radio" name="ansiedad" value="No"><span>No la tengo</span></label>
+<label data-grupo="ansiedad"><input type="radio" name="ansiedad" value="Leve"><span>Leve — tensión ocasional, no me limita</span></label>
+<label data-grupo="ansiedad"><input type="radio" name="ansiedad" value="Moderada"><span>Moderada — presente con frecuencia, me afecta</span></label>
+<label data-grupo="ansiedad"><input type="radio" name="ansiedad" value="Intensa"><span>Intensa — muy presente, interfiere en mi día a día</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">😞 Tristeza, bajones anímicos o melancolía</div>
+<div class="intensidad-opciones">
+<label data-grupo="tristeza"><input type="radio" name="tristeza" value="No"><span>No la tengo</span></label>
+<label data-grupo="tristeza"><input type="radio" name="tristeza" value="Leve"><span>Leve — algún bajón puntual que pasa solo</span></label>
+<label data-grupo="tristeza"><input type="radio" name="tristeza" value="Moderada"><span>Moderada — presente varios días a la semana</span></label>
+<label data-grupo="tristeza"><input type="radio" name="tristeza" value="Intensa"><span>Intensa — muy frecuente, me pesa mucho</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">🧠 Niebla mental (olvidos, dificultad para concentrarte)</div>
+<div class="intensidad-opciones">
+<label data-grupo="niebla"><input type="radio" name="niebla" value="No"><span>No la tengo, mi mente está despejada</span></label>
+<label data-grupo="niebla"><input type="radio" name="niebla" value="Leve"><span>Leve — algún despiste puntual</span></label>
+<label data-grupo="niebla"><input type="radio" name="niebla" value="Moderada"><span>Moderada — olvidos frecuentes, me cuesta concentrarme</span></label>
+<label data-grupo="niebla"><input type="radio" name="niebla" value="Intensa"><span>Intensa — afecta a mi trabajo o vida diaria</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Cómo describirías tu relación con este proceso vital?</div>
+<div class="intensidad-opciones">
+<label data-grupo="relacion"><input type="radio" name="relacion" value="Natural"><span>Lo vivo con naturalidad y lo acepto</span></label>
+<label data-grupo="relacion"><input type="radio" name="relacion" value="Difícil"><span>Me cuesta aceptarlo, hay días difíciles</span></label>
+<label data-grupo="relacion"><input type="radio" name="relacion" value="Resistencia"><span>Lo vivo con mucha resistencia o sufrimiento</span></label>
+<label data-grupo="relacion"><input type="radio" name="relacion" value="No procesado"><span>Aún no lo he procesado del todo</span></label>
+<label data-grupo="relacion"><input type="radio" name="relacion" value="Oportunidad"><span>Lo veo como una oportunidad de transformación</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Cómo te afecta emocionalmente en el día a día? (puedes marcar varios)</label>
+<div class="checkbox-grupo">
+<label><input type="checkbox" name="emocional" value="Pérdida de energía vital">Siento que he perdido energía vital</label>
+<label><input type="checkbox" name="emocional" value="Menos segura">Me siento menos segura de mí misma</label>
+<label><input type="checkbox" name="emocional" value="Cambios en pareja">Noto cambios en mi relación de pareja</label>
+<label><input type="checkbox" name="emocional" value="Trabajo afectado">Me afecta en el trabajo / concentración</label>
+<label><input type="checkbox" name="emocional" value="Cuerpo extraño">Siento que mi cuerpo ya no es el de antes</label>
+<label><input type="checkbox" name="emocional" value="No disfruto">Me cuesta disfrutar de lo que antes me gustaba</label>
+<label><input type="checkbox" name="emocional" value="Incomprendida">Me siento incomprendida por mi entorno</label>
+<label><input type="checkbox" name="emocional" value="Cambios en intimidad">Ha cambiado mi deseo sexual o mi intimidad</label>
+<label><input type="checkbox" name="emocional" value="Desorientada identidad">Me siento desorientada sobre quién soy ahora</label>
+<label><input type="checkbox" name="emocional" value="Bien en general">En general me encuentro bien emocionalmente</label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Hay algo de tu estado emocional que quieras compartir con más detalle?</label>
+<textarea id="emocional_text"></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 05 · SALUD GENERAL Y ANTECEDENTES ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">05</div>
+<h2>Salud general y antecedentes</h2>
+<div class="seccion-sub">Condiciones previas e historia de salud para personalizar el programa</div>
+
+<div class="campo">
+<label>¿Tienes alguna enfermedad crónica o condición diagnosticada? (marca todas las que apliquen)</label>
+<div class="checkbox-grupo">
+<label><input type="checkbox" name="cronicas" value="Hipotiroidismo/hipertiroidismo">Hipotiroidismo / hipertiroidismo</label>
+<label><input type="checkbox" name="cronicas" value="Diabetes / resistencia insulina">Diabetes o resistencia a la insulina</label>
+<label><input type="checkbox" name="cronicas" value="Hipertensión">Hipertensión arterial</label>
+<label><input type="checkbox" name="cronicas" value="Colesterol / triglicéridos elevados">Colesterol o triglicéridos elevados</label>
+<label><input type="checkbox" name="cronicas" value="Osteoporosis / osteopenia">Osteoporosis u osteopenia</label>
+<label><input type="checkbox" name="cronicas" value="Enfermedad autoinmune">Enfermedad autoinmune</label>
+<label><input type="checkbox" name="cronicas" value="Endometriosis / fibromas">Endometriosis o fibromas</label>
+<label><input type="checkbox" name="cronicas" value="Patología cardiovascular">Patología cardiovascular</label>
+<label><input type="checkbox" name="cronicas" value="Fibromialgia / fatiga crónica">Fibromialgia / fatiga crónica</label>
+<label><input type="checkbox" name="cronicas" value="Ansiedad/depresión diagnosticadas">Ansiedad o depresión diagnosticadas</label>
+<label><input type="checkbox" name="cronicas" value="Ninguna">Ninguna de las anteriores</label>
+</div>
+</div>
+
+<div class="campo">
+<label>Otras condiciones o cirugías previas</label>
+<textarea id="otras_condiciones"></textarea>
+</div>
+
+<div class="campo">
+<label>Antecedentes familiares relevantes</label>
+<textarea id="familiares" placeholder="Cardiovasculares, oncológicos, óseos, metabólicos, neurológicos..."></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 06 · MEDICACIÓN ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">06</div>
+<h2>Tratamientos y medicación actual</h2>
+<div class="seccion-sub">Fundamental para asegurar la compatibilidad de todo lo que recomendemos</div>
+
+<div class="campo">
+<label>¿Tomas algún medicamento actualmente? ¿Cuál y para qué?</label>
+<textarea id="medicacion"></textarea>
+</div>
+
+<div class="campo">
+<label>¿Tomas suplementos, vitaminas o plantas medicinales actualmente?</label>
+<textarea id="suplementos"></textarea>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Consulta ginecológica en el último año?</div>
+<div class="intensidad-opciones">
+<label data-grupo="gineco"><input type="radio" name="gineco" value="<6 meses"><span>Sí, hace menos de 6 meses</span></label>
+<label data-grupo="gineco"><input type="radio" name="gineco" value="6-12 meses"><span>Sí, hace 6-12 meses</span></label>
+<label data-grupo="gineco"><input type="radio" name="gineco" value=">1 año"><span>No, hace más de 1 año</span></label>
+<label data-grupo="gineco"><input type="radio" name="gineco" value="Sin ginecólogo"><span>No tengo ginecólogo/a habitual</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>Alergias conocidas (medicamentos, plantas...)</label>
+<textarea id="alergias"></textarea>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Tienes alguna condición hepática o renal?</div>
+<div class="intensidad-opciones">
+<label data-grupo="hep_renal"><input type="radio" name="hep_renal" value="No"><span>No, ninguna conocida</span></label>
+<label data-grupo="hep_renal"><input type="radio" name="hep_renal" value="Hepática"><span>Sí, hepática</span></label>
+<label data-grupo="hep_renal"><input type="radio" name="hep_renal" value="Renal"><span>Sí, renal</span></label>
+<label data-grupo="hep_renal"><input type="radio" name="hep_renal" value="No lo sé"><span>No lo sé con certeza</span></label>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 07 · SALUD MAMARIA Y ANTECEDENTES ONCOHORMONALES ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">07</div>
+<h2>Salud mamaria y antecedentes hormonales</h2>
+<div class="seccion-sub">Información imprescindible para prescribir fitoterapia hormonal con seguridad</div>
+
+<div class="bloque-nota">Algunos extractos de plantas que ayudan en menopausia (trébol rojo, cimicífuga, lúpulo, salvia...) están contraindicados en mujeres con antecedentes de cánceres hormonodependientes. Por eso este bloque es <strong>imprescindible</strong>.</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Tienes antecedentes personales de cáncer hormonodependiente (mama, ovario, endometrio)?</div>
+<div class="intensidad-opciones">
+<label data-grupo="onco_personal"><input type="radio" name="onco_personal" value="No"><span>No, ninguno</span></label>
+<label data-grupo="onco_personal"><input type="radio" name="onco_personal" value="Mama"><span>Sí, cáncer de mama</span></label>
+<label data-grupo="onco_personal"><input type="radio" name="onco_personal" value="Ovario"><span>Sí, cáncer de ovario</span></label>
+<label data-grupo="onco_personal"><input type="radio" name="onco_personal" value="Endometrio"><span>Sí, cáncer de endometrio</span></label>
+<label data-grupo="onco_personal"><input type="radio" name="onco_personal" value="Otro"><span>Sí, otro (especificar abajo)</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Antecedentes familiares directos de cáncer hormonodependiente?</div>
+<div class="intensidad-opciones">
+<label data-grupo="onco_familiar"><input type="radio" name="onco_familiar" value="No"><span>No, ninguno conocido</span></label>
+<label data-grupo="onco_familiar"><input type="radio" name="onco_familiar" value="Madre/hermana"><span>Sí, madre o hermana</span></label>
+<label data-grupo="onco_familiar"><input type="radio" name="onco_familiar" value="Otros familiares"><span>Sí, otros familiares directos</span></label>
+<label data-grupo="onco_familiar"><input type="radio" name="onco_familiar" value="No lo sé"><span>No lo sé con certeza</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Mamografía en el último año?</div>
+<div class="intensidad-opciones">
+<label data-grupo="mamografia"><input type="radio" name="mamografia" value="<6 meses"><span>Sí, hace menos de 6 meses</span></label>
+<label data-grupo="mamografia"><input type="radio" name="mamografia" value="6-12 meses"><span>Sí, hace 6-12 meses</span></label>
+<label data-grupo="mamografia"><input type="radio" name="mamografia" value="1-2 años"><span>Hace 1-2 años</span></label>
+<label data-grupo="mamografia"><input type="radio" name="mamografia" value=">2 años"><span>Hace más de 2 años o nunca</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Has tenido cirugías ginecológicas o mamarias? (histerectomía, ovariectomía, miomas, quistes mamarios, biopsias, etc.)</label>
+<textarea id="cirugias_gineco"></textarea>
+</div>
+
+<div class="campo">
+<label>¿Algo más que quieras añadir sobre tu salud mamaria u hormonal?</label>
+<textarea id="onco_text"></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 08 · SUELO PÉLVICO E INTIMIDAD ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">08</div>
+<h2>Suelo pélvico, intimidad y salud urogenital</h2>
+<div class="seccion-sub">Una zona poco hablada pero muy afectada en el climaterio. Aquí también te acompaño con respeto</div>
+
+<div class="bloque-nota">El descenso de estrógenos cambia la elasticidad de los tejidos pélvicos. Es muy frecuente y <strong>totalmente abordable</strong>. Cuanto más sepa, mejor podré adaptarte hipopresivos, yoga y nutrición.</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Pérdidas de orina al toser, reír, saltar o estornudar</div>
+<div class="intensidad-opciones">
+<label data-grupo="incont"><input type="radio" name="incont" value="No"><span>No las tengo</span></label>
+<label data-grupo="incont"><input type="radio" name="incont" value="Ocasionales"><span>Ocasionales, esfuerzos grandes</span></label>
+<label data-grupo="incont"><input type="radio" name="incont" value="Frecuentes"><span>Frecuentes, esfuerzos moderados</span></label>
+<label data-grupo="incont"><input type="radio" name="incont" value="Constantes"><span>Casi a diario, limitan mi día</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Urgencia urinaria (necesidad imperiosa de orinar)</div>
+<div class="intensidad-opciones">
+<label data-grupo="urgencia"><input type="radio" name="urgencia" value="No"><span>No la tengo</span></label>
+<label data-grupo="urgencia"><input type="radio" name="urgencia" value="Ocasional"><span>Ocasional</span></label>
+<label data-grupo="urgencia"><input type="radio" name="urgencia" value="Frecuente"><span>Frecuente</span></label>
+<label data-grupo="urgencia"><input type="radio" name="urgencia" value="Muy frecuente"><span>Muy frecuente, incluso con pequeñas pérdidas</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Sensación de peso, presión o bulto en zona vaginal</div>
+<div class="intensidad-opciones">
+<label data-grupo="prolapso"><input type="radio" name="prolapso" value="No"><span>No la tengo</span></label>
+<label data-grupo="prolapso"><input type="radio" name="prolapso" value="Leve"><span>Leve, al final del día</span></label>
+<label data-grupo="prolapso"><input type="radio" name="prolapso" value="Moderada"><span>Moderada, varios días a la semana</span></label>
+<label data-grupo="prolapso"><input type="radio" name="prolapso" value="Diagnosticado"><span>Tengo un prolapso diagnosticado</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Sequedad o molestias íntimas en relaciones sexuales</div>
+<div class="intensidad-opciones">
+<label data-grupo="dispareunia"><input type="radio" name="dispareunia" value="No"><span>No tengo molestias</span></label>
+<label data-grupo="dispareunia"><input type="radio" name="dispareunia" value="Leve"><span>Sequedad leve, manejable</span></label>
+<label data-grupo="dispareunia"><input type="radio" name="dispareunia" value="Moderada"><span>Molestias o dolor en relaciones</span></label>
+<label data-grupo="dispareunia"><input type="radio" name="dispareunia" value="Intensa"><span>Dolor intenso o he dejado relaciones por esto</span></label>
+<label data-grupo="dispareunia"><input type="radio" name="dispareunia" value="No aplica"><span>No mantengo relaciones actualmente / prefiero no contestar</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Deseo sexual y libido en este momento</div>
+<div class="intensidad-opciones">
+<label data-grupo="libido"><input type="radio" name="libido" value="Bien"><span>Estable y satisfactoria</span></label>
+<label data-grupo="libido"><input type="radio" name="libido" value="Algo menor"><span>Algo menor que antes, pero llevadero</span></label>
+<label data-grupo="libido"><input type="radio" name="libido" value="Muy bajo"><span>Muy bajo, casi inexistente</span></label>
+<label data-grupo="libido"><input type="radio" name="libido" value="Reservado"><span>Prefiero no contestar</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Has trabajado el suelo pélvico antes? (fisioterapia, hipopresivos, Kegel, dispositivos)</label>
+<textarea id="suelo_pelvico_prev"></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 09 · SALUD ÓSEA ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">09</div>
+<h2>Salud ósea</h2>
+<div class="seccion-sub">Tus huesos también atraviesan esta etapa — y se cuidan</div>
+
+<div class="bloque-nota">En los primeros 5–10 años de menopausia se puede perder hasta el 20% de masa ósea. La buena noticia: <strong>la nutrición, los suplementos correctos y el ejercicio de fuerza/impacto frenan y revierten esa pérdida</strong>. Por eso te pregunto esto.</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Te has hecho alguna vez una densitometría ósea (DXA)?</div>
+<div class="intensidad-opciones">
+<label data-grupo="dxa"><input type="radio" name="dxa" value="No, nunca"><span>No, nunca</span></label>
+<label data-grupo="dxa"><input type="radio" name="dxa" value="<2 años"><span>Sí, hace menos de 2 años</span></label>
+<label data-grupo="dxa"><input type="radio" name="dxa" value=">2 años"><span>Sí, hace más de 2 años</span></label>
+<label data-grupo="dxa"><input type="radio" name="dxa" value="Me la han pedido"><span>Me la han pedido pero aún no me la he hecho</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>Si la conoces: resultado de la densitometría (T-score o diagnóstico)</label>
+<input type="text" id="dxa_resultado" placeholder="Ej: T-score -1,5 columna / osteopenia / osteoporosis">
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Has tenido alguna fractura por golpe o caída leve?</div>
+<div class="intensidad-opciones">
+<label data-grupo="fractura"><input type="radio" name="fractura" value="No"><span>No, nunca</span></label>
+<label data-grupo="fractura"><input type="radio" name="fractura" value="Una"><span>Sí, una vez</span></label>
+<label data-grupo="fractura"><input type="radio" name="fractura" value="Varias"><span>Sí, en más de una ocasión</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Antecedentes familiares directos de osteoporosis o fractura de cadera?</div>
+<div class="intensidad-opciones">
+<label data-grupo="osteo_familiar"><input type="radio" name="osteo_familiar" value="No"><span>No, que yo sepa</span></label>
+<label data-grupo="osteo_familiar"><input type="radio" name="osteo_familiar" value="Sí"><span>Sí, madre/padre o hermana</span></label>
+<label data-grupo="osteo_familiar"><input type="radio" name="osteo_familiar" value="No lo sé"><span>No lo sé</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Consumo habitual de lácteos o alternativas ricas en calcio (yogur, queso, sardinas, sésamo, tofu, bebidas vegetales enriquecidas...)</div>
+<div class="intensidad-opciones">
+<label data-grupo="calcio"><input type="radio" name="calcio" value="Diario"><span>Cada día, varias raciones</span></label>
+<label data-grupo="calcio"><input type="radio" name="calcio" value="Frecuente"><span>Casi cada día, una ración</span></label>
+<label data-grupo="calcio"><input type="radio" name="calcio" value="Ocasional"><span>Algunas veces a la semana</span></label>
+<label data-grupo="calcio"><input type="radio" name="calcio" value="Bajo"><span>Casi nunca o no consumo</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Exposición solar habitual (sin protector, brazos y piernas)</div>
+<div class="intensidad-opciones">
+<label data-grupo="sol"><input type="radio" name="sol" value="Buena"><span>Diaria, al menos 15-20 min</span></label>
+<label data-grupo="sol"><input type="radio" name="sol" value="Moderada"><span>Algunos días a la semana</span></label>
+<label data-grupo="sol"><input type="radio" name="sol" value="Escasa"><span>Muy poca, casi siempre cubierta o en interior</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Has tomado corticoides durante más de 3 meses seguidos?</div>
+<div class="intensidad-opciones">
+<label data-grupo="corticoides"><input type="radio" name="corticoides" value="No"><span>No, nunca</span></label>
+<label data-grupo="corticoides"><input type="radio" name="corticoides" value="Sí pasado"><span>Sí, en el pasado</span></label>
+<label data-grupo="corticoides"><input type="radio" name="corticoides" value="Sí actual"><span>Sí, actualmente</span></label>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 10 · SALUD CARDIOVASCULAR ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">10</div>
+<h2>Salud cardiovascular y composición corporal</h2>
+<div class="seccion-sub">La menopausia cambia el perfil cardiovascular — y se puede acompañar</div>
+
+<div class="bloque-nota">Tras la menopausia el corazón pierde el efecto protector de los estrógenos. Por eso este bloque, junto a tu analítica, me permite construirte un programa de ejercicio <strong>cardiosaludable y seguro</strong>.</div>
+
+<div class="campo">
+<label>Tensión arterial habitual (si la conoces)</label>
+<input type="text" id="tension" placeholder="Ej: 12/8 · 130/85 · no lo sé">
+</div>
+
+<div class="campo">
+<label>Peso aproximado (kg) <em>— opcional</em></label>
+<input type="text" id="peso">
+</div>
+
+<div class="campo">
+<label>Altura aproximada (cm) <em>— opcional</em></label>
+<input type="text" id="altura">
+</div>
+
+<div class="campo">
+<label>Perímetro de cintura aproximado (cm) <em>— opcional, mide a la altura del ombligo</em></label>
+<input type="text" id="cintura">
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Antecedentes familiares directos cardiovasculares antes de los 65 años? (infarto, ictus, arritmias)</div>
+<div class="intensidad-opciones">
+<label data-grupo="cv_familiar"><input type="radio" name="cv_familiar" value="No"><span>No, que yo sepa</span></label>
+<label data-grupo="cv_familiar"><input type="radio" name="cv_familiar" value="Sí"><span>Sí, familiar directo</span></label>
+<label data-grupo="cv_familiar"><input type="radio" name="cv_familiar" value="No lo sé"><span>No lo sé</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Fumas o has fumado?</div>
+<div class="intensidad-opciones">
+<label data-grupo="tabaco"><input type="radio" name="tabaco" value="No, nunca"><span>No, nunca he fumado</span></label>
+<label data-grupo="tabaco"><input type="radio" name="tabaco" value="Exfumadora"><span>Sí, pero lo dejé</span></label>
+<label data-grupo="tabaco"><input type="radio" name="tabaco" value="Ocasional"><span>Sí, ocasionalmente</span></label>
+<label data-grupo="tabaco"><input type="radio" name="tabaco" value="Diario"><span>Sí, a diario</span></label>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 11 · ANALÍTICAS ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">11</div>
+<h2>Analíticas recientes</h2>
+<div class="seccion-sub">Los datos de laboratorio son una guía muy valiosa</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Te has realizado analítica en el último año?</div>
+<div class="intensidad-opciones">
+<label data-grupo="analitica"><input type="radio" name="analitica" value="<6 meses"><span>Sí, hace menos de 6 meses</span></label>
+<label data-grupo="analitica"><input type="radio" name="analitica" value="6-12 meses"><span>Sí, hace entre 6 y 12 meses</span></label>
+<label data-grupo="analitica"><input type="radio" name="analitica" value=">1 año"><span>No, hace más de un año</span></label>
+<label data-grupo="analitica"><input type="radio" name="analitica" value="Nunca"><span>No me he hecho analítica nunca</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Han aparecido valores alterados? (marca todos los que apliquen)</label>
+<div class="checkbox-grupo">
+<label><input type="checkbox" name="alterados" value="Vit D baja">Vitamina D baja</label>
+<label><input type="checkbox" name="alterados" value="Hierro/ferritina bajos">Hierro o ferritina baja</label>
+<label><input type="checkbox" name="alterados" value="Tiroides alterada">Tiroides alterada (TSH / T3 / T4)</label>
+<label><input type="checkbox" name="alterados" value="Colesterol elevado">Colesterol elevado</label>
+<label><input type="checkbox" name="alterados" value="Glucosa/insulina elevadas">Glucosa o insulina elevadas</label>
+<label><input type="checkbox" name="alterados" value="FSH/LH alteradas">FSH o LH alteradas</label>
+<label><input type="checkbox" name="alterados" value="Estradiol bajo">Estradiol bajo</label>
+<label><input type="checkbox" name="alterados" value="Magnesio/calcio alterados">Magnesio o calcio alterados</label>
+<label><input type="checkbox" name="alterados" value="Todo normal">Todo dentro de la normalidad</label>
+<label><input type="checkbox" name="alterados" value="No sé">No sé / no recuerdo</label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Algo de tu analítica que quieras destacar?</label>
+<textarea id="analitica_text" placeholder="Si tienes los valores concretos, puedes anotarlos aquí"></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 12 · ALIMENTACIÓN ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">12</div>
+<h2>Alimentación e hidratación</h2>
+<div class="seccion-sub">La nutrición en el climaterio tiene un impacto directo en cómo te sientes</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Cómo describirías tu alimentación en general?</div>
+<div class="intensidad-opciones">
+<label data-grupo="alim_general"><input type="radio" name="alim_general" value="Variada y equilibrada"><span>Variada y equilibrada</span></label>
+<label data-grupo="alim_general"><input type="radio" name="alim_general" value="Sana con excepciones"><span>Bastante sana pero con excepciones</span></label>
+<label data-grupo="alim_general"><input type="radio" name="alim_general" value="Irregular"><span>Irregular, depende del día y el estado de ánimo</span></label>
+<label data-grupo="alim_general"><input type="radio" name="alim_general" value="Poco cuidada"><span>Poco cuidada, soy consciente de que debo mejorar</span></label>
+<label data-grupo="alim_general"><input type="radio" name="alim_general" value="Dieta específica"><span>Sigo una dieta específica (especificar abajo)</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Tienes alguna condición alimentaria? (marca las que apliquen)</label>
+<div class="checkbox-grupo">
+<label><input type="checkbox" name="alim_cond" value="Intolerancia lactosa">Intolerancia a la lactosa</label>
+<label><input type="checkbox" name="alim_cond" value="Celiaquía/sensibilidad gluten">Celiaquía / sensibilidad al gluten</label>
+<label><input type="checkbox" name="alim_cond" value="Vegetariana/vegana">Vegetariana o vegana</label>
+<label><input type="checkbox" name="alim_cond" value="Alergia alimentaria">Alergia alimentaria</label>
+<label><input type="checkbox" name="alim_cond" value="Ninguna">Ninguna</label>
+</div>
+</div>
+
+<div class="campo">
+<label>Azúcar y ultraprocesados</label>
+<select id="azucar">
+<option value="">Selecciona...</option>
+<option>Muy bajo o ninguno</option>
+<option>Moderado (algún capricho ocasional)</option>
+<option>Frecuente (casi a diario)</option>
+<option>Alto (base de mi alimentación)</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Alcohol</label>
+<select id="alcohol">
+<option value="">Selecciona...</option>
+<option>Ninguno o casi ninguno</option>
+<option>Ocasional (fines de semana)</option>
+<option>Moderado (varios días a la semana)</option>
+<option>Frecuente (diario)</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Cafeína</label>
+<select id="cafeina">
+<option value="">Selecciona...</option>
+<option>Ninguno</option>
+<option>1 taza al día</option>
+<option>2-3 tazas al día</option>
+<option>Más de 3 tazas al día</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Agua al día</label>
+<select id="agua">
+<option value="">Selecciona...</option>
+<option>Menos de 1 litro</option>
+<option>1 - 1,5 litros</option>
+<option>1,5 - 2 litros</option>
+<option>Más de 2 litros</option>
+</select>
+</div>
+
+<div class="campo">
+<label>¿Algo más sobre tu alimentación?</label>
+<textarea id="alim_text"></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 13 · TRÁNSITO INTESTINAL ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">13</div>
+<h2>Tránsito intestinal y digestión</h2>
+<div class="seccion-sub">El intestino regula la eliminación hormonal — un pilar invisible pero clave</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Frecuencia habitual de deposiciones</div>
+<div class="intensidad-opciones">
+<label data-grupo="transito"><input type="radio" name="transito" value="Diaria"><span>Cada día, sin esfuerzo</span></label>
+<label data-grupo="transito"><input type="radio" name="transito" value="2-3 al día"><span>Varias veces al día</span></label>
+<label data-grupo="transito"><input type="radio" name="transito" value="2-3 días"><span>Cada 2-3 días</span></label>
+<label data-grupo="transito"><input type="radio" name="transito" value="Menos"><span>Menos de 2 veces a la semana</span></label>
+<label data-grupo="transito"><input type="radio" name="transito" value="Variable"><span>Muy variable, a temporadas</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Consistencia habitual de las heces</div>
+<div class="intensidad-opciones">
+<label data-grupo="heces"><input type="radio" name="heces" value="Duras"><span>Duras, secas, cuesta evacuar</span></label>
+<label data-grupo="heces"><input type="radio" name="heces" value="Normales"><span>Normales, formadas y blandas</span></label>
+<label data-grupo="heces"><input type="radio" name="heces" value="Blandas"><span>Blandas o pastosas</span></label>
+<label data-grupo="heces"><input type="radio" name="heces" value="Líquidas"><span>Líquidas o diarrea con frecuencia</span></label>
+<label data-grupo="heces"><input type="radio" name="heces" value="Alternantes"><span>Alternan duras y blandas</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">Distensión abdominal o gases después de comer</div>
+<div class="intensidad-opciones">
+<label data-grupo="hinchazon"><input type="radio" name="hinchazon" value="No"><span>No los tengo</span></label>
+<label data-grupo="hinchazon"><input type="radio" name="hinchazon" value="Ocasional"><span>Ocasional, según qué coma</span></label>
+<label data-grupo="hinchazon"><input type="radio" name="hinchazon" value="Frecuente"><span>Frecuente, casi a diario</span></label>
+<label data-grupo="hinchazon"><input type="radio" name="hinchazon" value="Constante"><span>Constante, muy molesta</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Alimentos que te sienten especialmente mal o evitas?</label>
+<textarea id="digestion_text"></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 14 · ACTIVIDAD FÍSICA ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">14</div>
+<h2>Actividad física y patrón respiratorio</h2>
+<div class="seccion-sub">El movimiento y la respiración son dos pilares centrales del programa</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Practicas algún tipo de ejercicio o actividad física actualmente?</div>
+<div class="intensidad-opciones">
+<label data-grupo="ejercicio"><input type="radio" name="ejercicio" value="Regular"><span>Sí, de manera regular y constante</span></label>
+<label data-grupo="ejercicio"><input type="radio" name="ejercicio" value="Irregular"><span>Sí, pero de forma irregular</span></label>
+<label data-grupo="ejercicio"><input type="radio" name="ejercicio" value="Esporádica"><span>Muy poco o de forma esporádica</span></label>
+<label data-grupo="ejercicio"><input type="radio" name="ejercicio" value="Sedentaria"><span>No, soy bastante sedentaria actualmente</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Qué tipo de actividad realizas? (puedes marcar varias)</label>
+<div class="checkbox-grupo">
+<label><input type="checkbox" name="tipo_ej" value="Caminar">Caminar</label>
+<label><input type="checkbox" name="tipo_ej" value="Natación">Natación</label>
+<label><input type="checkbox" name="tipo_ej" value="Yoga/Pilates">Yoga o Pilates</label>
+<label><input type="checkbox" name="tipo_ej" value="Gimnasio/fuerza">Gimnasio / fuerza</label>
+<label><input type="checkbox" name="tipo_ej" value="Running">Running o cardio intenso</label>
+<label><input type="checkbox" name="tipo_ej" value="Baile">Baile o actividades de grupo</label>
+<label><input type="checkbox" name="tipo_ej" value="Ciclismo">Ciclismo</label>
+<label><input type="checkbox" name="tipo_ej" value="Senderismo">Senderismo o montaña</label>
+<label><input type="checkbox" name="tipo_ej" value="Ninguna">Ninguna actualmente</label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Tienes alguna lesión, dolor crónico o limitación física a tener en cuenta?</label>
+<textarea id="lesiones"></textarea>
+</div>
+
+<div class="campo">
+<label>¿Cuánto tiempo puedes dedicar al programa en casa? (al día o a la semana)</label>
+<input type="text" id="tiempo_disponible" placeholder="Ej: 30 minutos al día / 3 días a la semana">
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Cómo dirías que es tu respiración habitual?</div>
+<div class="intensidad-opciones">
+<label data-grupo="respiracion"><input type="radio" name="respiracion" value="Tranquila y diafragmática"><span>Tranquila, profunda, abdominal</span></label>
+<label data-grupo="respiracion"><input type="radio" name="respiracion" value="Variable"><span>Variable, según el momento</span></label>
+<label data-grupo="respiracion"><input type="radio" name="respiracion" value="Corta y alta"><span>Corta, alta, en el pecho</span></label>
+<label data-grupo="respiracion"><input type="radio" name="respiracion" value="Suspiros"><span>Con suspiros frecuentes, bostezos, falta de aire</span></label>
+<label data-grupo="respiracion"><input type="radio" name="respiracion" value="No sé"><span>No me había fijado</span></label>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 15 · SUEÑO ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">15</div>
+<h2>Sueño y descanso</h2>
+<div class="seccion-sub">El descanso reparador es uno de los pilares más afectados durante el climaterio</div>
+
+<div class="campo">
+<label>Calidad subjetiva del sueño</label>
+<select id="calidad_sueno">
+<option value="">Selecciona...</option>
+<option>Muy buena, me levanto descansada</option>
+<option>Buena en general</option>
+<option>Regular, hay noches difíciles</option>
+<option>Mala, casi nunca descanso bien</option>
+<option>Muy mala, es uno de mis principales problemas</option>
+</select>
+</div>
+
+<div class="campo">
+<label>¿Qué problemas de sueño tienes? (marca todos los que apliquen)</label>
+<div class="checkbox-grupo">
+<label><input type="checkbox" name="probl_sueno" value="Conciliación">Dificultad para conciliar el sueño</label>
+<label><input type="checkbox" name="probl_sueno" value="Despertares">Despertares frecuentes durante la noche</label>
+<label><input type="checkbox" name="probl_sueno" value="Despertar temprano">Me despierto muy temprano sin poder volver a dormir</label>
+<label><input type="checkbox" name="probl_sueno" value="Sofocos nocturnos">Sofocos o sudoración que me despiertan</label>
+<label><input type="checkbox" name="probl_sueno" value="Rumiación">Pensamientos o rumiación nocturna</label>
+<label><input type="checkbox" name="probl_sueno" value="No reparador">Sueño poco reparador aunque duerma horas</label>
+<label><input type="checkbox" name="probl_sueno" value="Ninguno">Ningún problema significativo</label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Algo más sobre tu sueño?</label>
+<textarea id="sueno_text"></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 16 · GESTIÓN EMOCIONAL Y RED ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">16</div>
+<h2>Gestión emocional y recursos personales</h2>
+<div class="seccion-sub">¿Con qué herramientas cuentas ya para cuidarte?</div>
+
+<div class="campo">
+<label>¿Tienes o has tenido herramientas de gestión emocional? (marca las que apliquen)</label>
+<div class="checkbox-grupo">
+<label><input type="checkbox" name="herramientas" value="Meditación/mindfulness">Meditación o mindfulness</label>
+<label><input type="checkbox" name="herramientas" value="Yoga consciente">Yoga o movimiento consciente</label>
+<label><input type="checkbox" name="herramientas" value="Psicoterapia">Psicoterapia o apoyo psicológico</label>
+<label><input type="checkbox" name="herramientas" value="Coaching">Coaching o desarrollo personal</label>
+<label><input type="checkbox" name="herramientas" value="Escritura">Escritura o journaling</label>
+<label><input type="checkbox" name="herramientas" value="Respiración">Técnicas de respiración consciente</label>
+<label><input type="checkbox" name="herramientas" value="Grupo de apoyo">Comunidad o grupo de apoyo</label>
+<label><input type="checkbox" name="herramientas" value="Ninguna">Ninguna en concreto</label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">⚡ Nivel de estrés general actual</div>
+<div class="intensidad-opciones">
+<label data-grupo="estres"><input type="radio" name="estres" value="Bajo"><span>Bajo — me siento tranquila en general</span></label>
+<label data-grupo="estres"><input type="radio" name="estres" value="Moderado"><span>Moderado — hay estrés pero lo gestiono</span></label>
+<label data-grupo="estres"><input type="radio" name="estres" value="Alto"><span>Alto — el estrés es frecuente y me cuesta manejarlo</span></label>
+<label data-grupo="estres"><input type="radio" name="estres" value="Muy alto"><span>Muy alto — estoy desbordada, el estrés es constante</span></label>
+</div>
+</div>
+
+<div class="intensidad-grupo">
+<div class="intensidad-label">¿Cómo es tu red de apoyo social y familiar en este momento?</div>
+<div class="intensidad-opciones">
+<label data-grupo="apoyo"><input type="radio" name="apoyo" value="Buena"><span>Buena, me siento acompañada y comprendida</span></label>
+<label data-grupo="apoyo"><input type="radio" name="apoyo" value="Regular"><span>Regular, hay personas pero no me entienden del todo</span></label>
+<label data-grupo="apoyo"><input type="radio" name="apoyo" value="Escasa"><span>Escasa, me siento bastante sola en esto</span></label>
+<label data-grupo="apoyo"><input type="radio" name="apoyo" value="No valoro"><span>Prefiero no valorarlo en este momento</span></label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Hay alguna circunstancia vital que esté influyendo en cómo te encuentras?</label>
+<textarea id="circunstancias" placeholder="Cambios laborales, familia, hijos, pareja, duelos, mudanzas..."></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ 17 · OBJETIVOS ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="seccion-num">17</div>
+<h2>Objetivos y expectativas</h2>
+<div class="seccion-sub">¿Qué quieres conseguir con este programa?</div>
+
+<div class="campo">
+<label>¿Qué te gustaría mejorar prioritariamente? (elige hasta 3)</label>
+<div class="checkbox-grupo">
+<label><input type="checkbox" name="objetivos" value="Reducir sofocos">Reducir sofocos y sudoración</label>
+<label><input type="checkbox" name="objetivos" value="Mejorar sueño">Mejorar la calidad del sueño</label>
+<label><input type="checkbox" name="objetivos" value="Recuperar energía">Recuperar energía y reducir fatiga</label>
+<label><input type="checkbox" name="objetivos" value="Estabilidad emocional">Estabilizar el estado emocional</label>
+<label><input type="checkbox" name="objetivos" value="Aliviar dolores">Aliviar dolores articulares o musculares</label>
+<label><input type="checkbox" name="objetivos" value="Mejorar alimentación/peso">Mejorar alimentación y peso</label>
+<label><input type="checkbox" name="objetivos" value="Reducir ansiedad">Reducir ansiedad o estrés</label>
+<label><input type="checkbox" name="objetivos" value="Claridad mental">Mejorar la claridad mental</label>
+<label><input type="checkbox" name="objetivos" value="Salud ósea/CV">Cuidar salud ósea y cardiovascular</label>
+<label><input type="checkbox" name="objetivos" value="Suelo pélvico">Cuidar suelo pélvico e intimidad</label>
+<label><input type="checkbox" name="objetivos" value="Reencuentro conmigo">Reencontrarme conmigo misma</label>
+</div>
+</div>
+
+<div class="campo">
+<label>¿Qué esperas del programa? ¿Qué necesitas de Kiko?</label>
+<textarea id="expectativas"></textarea>
+</div>
+
+<div class="campo">
+<label>¿Hay algo más que quieras compartir?</label>
+<textarea id="extra"></textarea>
+</div>
+</div>
+</section>
+
+<!-- ============ CONSENTIMIENTO RGPD ============ -->
+<section class="seccion">
+<div class="seccion-inner">
+<div class="consent-block">
+<h3>🔒 Protección de datos y consentimiento informado</h3>
+<p style="font-size:14.5px;color:#5C4854;line-height:1.7">De conformidad con el Reglamento General de Protección de Datos (RGPD — UE 2016/679) y la Ley Orgánica 3/2018 de Protección de Datos Personales (LOPDGDD), te informamos que:</p>
+<ul>
+<li>Los datos que facilitas son tratados con la única finalidad de elaborar tu programa personalizado de bienestar natural.</li>
+<li>No se ceden a terceros bajo ningún concepto.</li>
+<li>Tienes derecho de acceso, rectificación, supresión, oposición y limitación del tratamiento.</li>
+<li>Los datos serán tratados con total confidencialidad por Kiko Martínez, Terapeuta Natural.</li>
+<li><strong>Este programa no constituye diagnóstico médico ni sustituye el tratamiento prescrito por un profesional de la medicina.</strong></li>
+</ul>
+<div class="checkbox-grupo">
+<label><input type="checkbox" id="consent1">He leído y acepto el tratamiento de mis datos personales para la elaboración del programa, conforme a la política de privacidad descrita. <span class="req">*</span></label>
+<label><input type="checkbox" id="consent2">Confirmo que la información proporcionada es veraz y que este programa no sustituye mi tratamiento médico habitual. <span class="req">*</span></label>
+<label><input type="checkbox" id="consent3">Doy mi consentimiento para que Kiko Martínez se ponga en contacto conmigo para coordinar la entrega del programa. <span class="req">*</span></label>
+</div>
+</div>
+
+<div class="botones-final">
+<button class="btn-pdf" id="btnPdf" onclick="generarPDF()">✦ Generar mi cuestionario en PDF</button>
+<div class="alerta-incompleto" id="alertaIncompleto">⚠️ Por favor, indica tu nombre, tu edad y acepta los tres consentimientos antes de generar el PDF.</div>
+<button class="btn-limpiar" onclick="limpiarFormulario()">Limpiar formulario</button>
+</div>
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer-firma">
+<h4>Kiko Martínez</h4>
+<p>Osteopatía · Coaching · Fitoterapia · Bienestar Integral</p>
+<div class="lema">"Tu bienestar, mi máxima prioridad."</div>
+</footer>
+
+<script>
+/* ========== MARCAR OPCIONES ========== */
+document.querySelectorAll('.intensidad-opciones').forEach(grupo=>{
+  grupo.addEventListener('change',function(e){
+    if(e.target.type==='radio'){
+      const name=e.target.name;
+      this.querySelectorAll('label').forEach(l=>{
+        const inp=l.querySelector('input');
+        if(inp && inp.name===name){
+          l.classList.toggle('marcado',inp.checked);
+        }
+      });
+    }
+  });
+});
+
+/* ========== LIMPIAR ACENTOS PARA JSPDF ========== */
+function limpiar(t){
+  if(!t) return '';
+  return String(t)
+    .replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u')
+    .replace(/Á/g,'A').replace(/É/g,'E').replace(/Í/g,'I').replace(/Ó/g,'O').replace(/Ú/g,'U')
+    .replace(/ñ/g,'n').replace(/Ñ/g,'N').replace(/ü/g,'u').replace(/Ü/g,'U')
+    .replace(/¿/g,'').replace(/¡/g,'')
+    .replace(/✦/g,'*').replace(/—/g,'-').replace(/–/g,'-').replace(/'/g,"'").replace(/'/g,"'").replace(/"/g,'"').replace(/"/g,'"')
+    .replace(/€/g,'EUR').replace(/º/g,'').replace(/ª/g,'')
+    .replace(/[^\x00-\x7F]/g,'');
+}
+
+/* ========== HELPERS ========== */
+function val(id){const el=document.getElementById(id);return el?el.value.trim():''}
+function radio(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:''}
+function checks(name){return Array.from(document.querySelectorAll('input[name="'+name+'"]:checked')).map(e=>e.value).join(', ')}
+
+/* ========== LIMPIAR FORMULARIO ========== */
+function limpiarFormulario(){
+  if(!confirm('¿Seguro que quieres borrar todas las respuestas?')) return;
+  document.querySelectorAll('input[type="text"],input[type="number"],input[type="tel"],input[type="email"],input[type="date"],textarea').forEach(e=>e.value='');
+  document.querySelectorAll('input[type="radio"],input[type="checkbox"]').forEach(e=>e.checked=false);
+  document.querySelectorAll('select').forEach(e=>e.selectedIndex=0);
+  document.querySelectorAll('.intensidad-opciones label').forEach(l=>l.classList.remove('marcado'));
+  document.getElementById('alertaIncompleto').classList.remove('visible');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ========== GENERAR PDF ========== */
+function generarPDF(){
+  const nombre=val('nombre');
+  const edad=val('edad');
+  const c1=document.getElementById('consent1').checked;
+  const c2=document.getElementById('consent2').checked;
+  const c3=document.getElementById('consent3').checked;
+
+  if(!nombre || !edad || !c1 || !c2 || !c3){
+    document.getElementById('alertaIncompleto').classList.add('visible');
+    document.getElementById('alertaIncompleto').scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  document.getElementById('alertaIncompleto').classList.remove('visible');
+
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({unit:'mm',format:'a4'});
+  const pageW=210, pageH=297, marginX=20;
+  let y=20;
+
+  function nuevaPagina(){
+    doc.addPage();
+    y=20;
+    pieDePagina();
+  }
+  function pieDePagina(){
+    doc.setFont('helvetica','italic');
+    doc.setFontSize(8);
+    doc.setTextColor(150,130,140);
+    doc.text(limpiar('Kiko Martinez · Terapeuta Natural · "Tu bienestar, mi maxima prioridad."'),pageW/2,pageH-10,{align:'center'});
+    doc.setTextColor(60,40,55);
+  }
+  function checkSpace(needed){
+    if(y+needed>pageH-20){nuevaPagina()}
+  }
+  function titulo(txt){
+    checkSpace(18);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(13);
+    doc.setTextColor(107,79,92);
+    doc.text(limpiar(txt),marginX,y);
+    doc.setDrawColor(196,149,90);
+    doc.setLineWidth(0.4);
+    doc.line(marginX,y+1.5,marginX+30,y+1.5);
+    y+=10;
+    doc.setTextColor(60,40,55);
+  }
+  function par(label,valor){
+    if(!valor) return;
+    checkSpace(10);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(110,80,95);
+    doc.text(limpiar(label+':'),marginX,y);
+    doc.setFont('helvetica','normal');
+    doc.setTextColor(60,40,55);
+    const lineas=doc.splitTextToSize(limpiar(valor),pageW-marginX*2-50);
+    doc.text(lineas,marginX+50,y);
+    y+=Math.max(5,lineas.length*4.5)+1;
+  }
+  function parLargo(label,valor){
+    if(!valor) return;
+    checkSpace(14);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(110,80,95);
+    doc.text(limpiar(label+':'),marginX,y);
+    y+=5;
+    doc.setFont('helvetica','normal');
+    doc.setTextColor(60,40,55);
+    const lineas=doc.splitTextToSize(limpiar(valor),pageW-marginX*2);
+    doc.text(lineas,marginX,y);
+    y+=lineas.length*4.5+2;
+  }
+
+  /* ===== Portada ===== */
+  doc.setFillColor(45,26,34);
+  doc.rect(0,0,pageW,pageH,'F');
+  doc.setTextColor(221,184,122);
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(11);
+  doc.text(limpiar('* * *'),pageW/2,55,{align:'center'});
+  doc.setFontSize(32);
+  doc.setTextColor(250,245,240);
+  doc.text(limpiar('Equilibrio Vital'),pageW/2,80,{align:'center'});
+  doc.setFontSize(13);
+  doc.setFont('helvetica','italic');
+  doc.setTextColor(221,184,122);
+  doc.text(limpiar('Evaluacion · Climaterio & Menopausia'),pageW/2,92,{align:'center'});
+  doc.setDrawColor(221,184,122);
+  doc.setLineWidth(0.3);
+  doc.line(pageW/2-25,100,pageW/2+25,100);
+  doc.setFontSize(11);
+  doc.setFont('helvetica','normal');
+  doc.setTextColor(240,225,214);
+  doc.text(limpiar('Cuestionario completado por:'),pageW/2,130,{align:'center'});
+  doc.setFontSize(18);
+  doc.setFont('helvetica','bold');
+  doc.setTextColor(250,245,240);
+  doc.text(limpiar(nombre),pageW/2,142,{align:'center'});
+  doc.setFontSize(11);
+  doc.setFont('helvetica','normal');
+  doc.setTextColor(196,149,90);
+  doc.text(limpiar(edad+' anos'),pageW/2,151,{align:'center'});
+  const fecha=new Date().toLocaleDateString('es-ES',{day:'2-digit',month:'long',year:'numeric'});
+  doc.text(limpiar(fecha),pageW/2,158,{align:'center'});
+  doc.setFontSize(9);
+  doc.setTextColor(221,184,122);
+  doc.text(limpiar('Kiko Martinez · Terapeuta Natural'),pageW/2,pageH-30,{align:'center'});
+  doc.setFontSize(8);
+  doc.setFont('helvetica','italic');
+  doc.text(limpiar('"Tu bienestar, mi maxima prioridad."'),pageW/2,pageH-22,{align:'center'});
+
+  nuevaPagina();
+
+  /* ===== 01 ===== */
+  titulo('01 · Datos personales');
+  par('Nombre',nombre);
+  par('Edad',edad+' anos');
+  par('Telefono',val('telefono'));
+  par('Ocupacion',val('ocupacion'));
+  y+=4;
+
+  /* ===== 02 ===== */
+  titulo('02 · Fase del proceso');
+  par('Fase',radio('fase'));
+  par('Ultima menstruacion',val('ultima_mens'));
+  par('Tiempo con sintomas',radio('duracion_sint'));
+  par('THS',radio('ths'));
+  y+=4;
+
+  /* ===== 03 ===== */
+  titulo('03 · Sintomas fisicos');
+  par('Sofocos',radio('sofocos'));
+  par('Sudoracion nocturna',radio('sudor'));
+  par('Dolores articulares',radio('dolores'));
+  par('Fatiga',radio('fatiga'));
+  par('Sueno',radio('sueno'));
+  par('Palpitaciones',radio('palpit'));
+  par('Otros sintomas',checks('otros_sint'));
+  par('Momento mas intenso',radio('momento'));
+  parLargo('Detalle de sintomas',val('otros_sint_text'));
+  y+=4;
+
+  /* ===== 04 ===== */
+  titulo('04 · Estado emocional y mental');
+  par('Irritabilidad',radio('irrit'));
+  par('Ansiedad',radio('ansiedad'));
+  par('Tristeza',radio('tristeza'));
+  par('Niebla mental',radio('niebla'));
+  par('Relacion con el proceso',radio('relacion'));
+  par('Afectacion diaria',checks('emocional'));
+  parLargo('Detalle emocional',val('emocional_text'));
+  y+=4;
+
+  /* ===== 05 ===== */
+  titulo('05 · Salud general y antecedentes');
+  par('Patologias diagnosticadas',checks('cronicas'));
+  parLargo('Otras condiciones o cirugias',val('otras_condiciones'));
+  parLargo('Antecedentes familiares',val('familiares'));
+  y+=4;
+
+  /* ===== 06 ===== */
+  titulo('06 · Tratamientos y medicacion actual');
+  parLargo('Medicacion actual',val('medicacion'));
+  parLargo('Suplementos / plantas',val('suplementos'));
+  par('Consulta ginecologica',radio('gineco'));
+  parLargo('Alergias',val('alergias'));
+  par('Condicion hepatica/renal',radio('hep_renal'));
+  y+=4;
+
+  /* ===== 07 ===== */
+  titulo('07 · Salud mamaria y antecedentes hormonales');
+  par('Cancer hormonal personal',radio('onco_personal'));
+  par('Cancer hormonal familiar',radio('onco_familiar'));
+  par('Mamografia reciente',radio('mamografia'));
+  parLargo('Cirugias ginecologicas',val('cirugias_gineco'));
+  parLargo('Otros',val('onco_text'));
+  y+=4;
+
+  /* ===== 08 ===== */
+  titulo('08 · Suelo pelvico, intimidad y salud urogenital');
+  par('Perdidas de orina',radio('incont'));
+  par('Urgencia urinaria',radio('urgencia'));
+  par('Peso/presion vaginal',radio('prolapso'));
+  par('Sequedad/molestias intimas',radio('dispareunia'));
+  par('Libido',radio('libido'));
+  parLargo('Trabajo previo de suelo pelvico',val('suelo_pelvico_prev'));
+  y+=4;
+
+  /* ===== 09 ===== */
+  titulo('09 · Salud osea');
+  par('Densitometria (DXA)',radio('dxa'));
+  par('Resultado DXA',val('dxa_resultado'));
+  par('Fracturas previas',radio('fractura'));
+  par('Antecedentes familiares osteoporosis',radio('osteo_familiar'));
+  par('Consumo de calcio',radio('calcio'));
+  par('Exposicion solar',radio('sol'));
+  par('Corticoides prolongados',radio('corticoides'));
+  y+=4;
+
+  /* ===== 10 ===== */
+  titulo('10 · Salud cardiovascular y composicion corporal');
+  par('Tension arterial',val('tension'));
+  par('Peso',val('peso'));
+  par('Altura',val('altura'));
+  par('Cintura',val('cintura'));
+  par('Antec. CV familiares',radio('cv_familiar'));
+  par('Tabaco',radio('tabaco'));
+  y+=4;
+
+  /* ===== 11 ===== */
+  titulo('11 · Analiticas recientes');
+  par('Analitica reciente',radio('analitica'));
+  par('Valores alterados',checks('alterados'));
+  parLargo('Detalle analitica',val('analitica_text'));
+  y+=4;
+
+  /* ===== 12 ===== */
+  titulo('12 · Alimentacion e hidratacion');
+  par('Patron general',radio('alim_general'));
+  par('Condiciones alimentarias',checks('alim_cond'));
+  par('Azucar/ultraprocesados',val('azucar'));
+  par('Alcohol',val('alcohol'));
+  par('Cafeina',val('cafeina'));
+  par('Agua/dia',val('agua'));
+  parLargo('Detalle alimentacion',val('alim_text'));
+  y+=4;
+
+  /* ===== 13 ===== */
+  titulo('13 · Transito intestinal y digestion');
+  par('Frecuencia deposiciones',radio('transito'));
+  par('Consistencia',radio('heces'));
+  par('Distension/gases',radio('hinchazon'));
+  parLargo('Alimentos que sientan mal',val('digestion_text'));
+  y+=4;
+
+  /* ===== 14 ===== */
+  titulo('14 · Actividad fisica y patron respiratorio');
+  par('Frecuencia ejercicio',radio('ejercicio'));
+  par('Tipo de actividad',checks('tipo_ej'));
+  parLargo('Lesiones/limitaciones',val('lesiones'));
+  par('Tiempo disponible',val('tiempo_disponible'));
+  par('Respiracion habitual',radio('respiracion'));
+  y+=4;
+
+  /* ===== 15 ===== */
+  titulo('15 · Sueno y descanso');
+  par('Calidad subjetiva',val('calidad_sueno'));
+  par('Problemas de sueno',checks('probl_sueno'));
+  parLargo('Detalle sueno',val('sueno_text'));
+  y+=4;
+
+  /* ===== 16 ===== */
+  titulo('16 · Gestion emocional y recursos personales');
+  par('Herramientas previas',checks('herramientas'));
+  par('Nivel de estres',radio('estres'));
+  par('Red de apoyo',radio('apoyo'));
+  parLargo('Circunstancias vitales',val('circunstancias'));
+  y+=4;
+
+  /* ===== 17 ===== */
+  titulo('17 · Objetivos y expectativas');
+  par('Prioridades',checks('objetivos'));
+  parLargo('Expectativas',val('expectativas'));
+  parLargo('Algo mas',val('extra'));
+  y+=4;
+
+  /* ===== CONSENTIMIENTO ===== */
+  checkSpace(36);
+  titulo('Consentimiento informado RGPD');
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(9);
+  doc.setTextColor(60,40,55);
+  const txt='La interesada acepta el tratamiento de sus datos personales para la elaboracion del programa, confirma la veracidad de la informacion proporcionada y da consentimiento para ser contactada por Kiko Martinez para la entrega del programa. Este programa no constituye diagnostico medico ni sustituye el tratamiento prescrito por un profesional de la medicina.';
+  const ltxt=doc.splitTextToSize(limpiar(txt),pageW-marginX*2);
+  doc.text(ltxt,marginX,y);
+  y+=ltxt.length*4.5+4;
+  doc.setFont('helvetica','italic');
+  doc.setFontSize(9);
+  doc.setTextColor(110,80,95);
+  doc.text(limpiar('Fecha de cumplimentacion: '+fecha),marginX,y);
+
+  pieDePagina();
+
+  /* ===== GUARDAR PDF ===== */
+  const nombreLimpio=limpiar(nombre).replace(/\s+/g,'_');
+  const fechaArchivo=new Date().toISOString().slice(0,10);
+  const archivo='Equilibrio_Vital_'+nombreLimpio+'_'+fechaArchivo+'.pdf';
+
+  try{
+    const blob=doc.output('blob');
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;
+    a.download=archivo;
+    a.target='_blank';
+    a.rel='noopener';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    },1500);
+  }catch(e){
+    try{doc.save(archivo)}catch(e2){
+      alert('No se ha podido generar el PDF. Prueba en otro navegador o ponte en contacto con Kiko.');
+    }
+  }
+}
+</script>
+
+</body>
+</html>
